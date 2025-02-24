@@ -1,0 +1,29 @@
+﻿@model Nimap_Project.Models.Product;
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Update Product</h1>
+
+<hr />
+
+<form asp-action="Edit" >
+    <div>
+        <label>Product Id</label>
+        <input asp-for="ProductId" class="form-control mb-3" readonly />
+    </div>
+    <div>
+        <label>Product Name</label>
+        <input asp-for="ProductName" class="form-control mb-3"  />
+    </div>
+    <div>
+        <label>Select Category</label>
+        <select name="CategoryId" id="CategoryId" class="form-control mb-3"  asp-items="@(new SelectList(ViewBag.Category,"CategoryId","CategoryName"))"></select>
+    </div>
+    <div>
+        <input type="Submit" value="Submit" />
+    </div>
+
+</form>
+<a asp-action="Index">Back To List</a>

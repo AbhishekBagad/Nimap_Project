@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Nimap_Project.Models.Category>
+
+
+@{
+    ViewData["Title"] = "Index";
+    var pager = ViewBag.Pager;
+}
+<div class="container">
+    @if (pager.TotalPages > 0)
+    {
+        <ul class="pagination justify-content-end">
+            @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+            {
+                <li class="page-item @(pge == pager.CurrentPage ? "active" : "")">
+                    <a class="page-link" asp-controller="Category" asp-action="Index" asp-route-pg="@pge"> @pge </a>
+                </li>
+            }
+        </ul>
+    }
+</div>
+
+<h1>Category List</h1>
+<hr />
+<p>
+    <a asp-action="Create">Create Category</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model=>model.CategoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model=>model.CategoryName)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var list in Model){
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem=>list.CategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>list.CategoryName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = list.CategoryId }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Details", "Details", new { id = list.CategoryId }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Delete", "delete", new { id = list.CategoryId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+
+        }
+        
+
+    </tbody>
+    
+</table>
