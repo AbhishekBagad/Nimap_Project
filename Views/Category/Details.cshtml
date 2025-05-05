@@ -1,0 +1,29 @@
+﻿@model Nimap_Project.Models.Category
+
+@{
+    ViewData["Title"] = "Details";
+}
+<h1> Category Details</h1>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt>
+            @Html.DisplayNameFor(Model => Model.CategoryId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(Model => Model.CategoryId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(Model => Model.CategoryName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(Model => Model.CategoryName)
+        </dd>
+    </dl>
+    <form asp-action="Edit">
+        @Html.ActionLink("Edit","Edit",new{id=Model.CategoryId},new{@class="btn btn-primary"})
+    </form>
+    <a asp-action="Index">Banck To List</a>
+
+</div>

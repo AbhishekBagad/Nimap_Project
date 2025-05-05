@@ -1,0 +1,30 @@
+﻿@model Nimap_Project.Models.Category;
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete Category</h1>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt>
+            @Html.DisplayNameFor(Model=>Model.CategoryId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(Model=>Model.CategoryId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(Model=>Model.CategoryName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(Model=>Model.CategoryName)
+        </dd>
+    </dl>
+    <form asp-action="Delete" >
+    <input type="Submit" value="Delete" class="btn btn-danger"/>
+     </form>
+     <a asp-action="Index">Banck To List</a>
+
+</div>

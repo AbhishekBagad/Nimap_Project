@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Nimap_Project.Models.Product>
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Product</h1>
+<hr/>
+<form asp-action="Create" method="post">
+    <div>
+        <label>Product Name</label>
+        <input type="text" name="ProductName" class="form-control m-3"/>
+    </div>
+    <div>
+        <label>Select Category</label>
+        <select name="CategoryId" id="CategoryId" class="form-control m-3">
+            <option value="">-- Select Category --</option>
+            @foreach (var category in ViewBag.Category)
+            {
+                <option value="@category.CategoryId">@category.CategoryName</option>
+            }
+        </select>
+    </div>
+    <div>
+        <input type="Submit"  value="Submit" />
+    </div>
+</form>
+<a asp-action="Index"> Back To List</a>
